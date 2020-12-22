@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    HomePage
+{% endblock %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+{% block main %}
+    <h2><u>All Users</u></h2>
+    {% for u in unp %}
+     <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{ u }}
+    <span class="caret"></span></button>
+        <ul class = "dropdown-menu">
+
+            {% for p in unp[u] %}
+            <li>
+                   <form action = "/takequiz" method = 'post'>
+                       {{p}}
+                       <input type = "hidden" name="test" value = "{{p}}">
+                       <input type = "submit" class="button" value = "Take Quiz">
+                   </form>
+            </li>
+            {% endfor %}
+        </ul>
+     </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Question
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <select name = "paper">
+            <option value = "Paper" disabled selected>Paper</option>
+            {% for paper in papers %}
+            <option value="{{paper}}">{{paper}}</option>
+            {% endfor %}
+        </select>
+        <span>
+        <label for = "question">Question:</label>
+        <input type = "text" name = "question" placeholder = "Question">
+        <label for = "answer">Answer:</label>
+        <input type = "text" name = "answer" placeholder = "Answer">
+        <label for = "wa1">Wrong Answer No. 1:</label>
+        <input type = "text" name = "wa1" placeholder = "Wrong Answer">
+        <label for = "wa2">Wrong Answer No. 2:</label>
+        <input type = "text" name = "wa2" placeholder = "Wrong Answer">
+        <label for = "wa3">Wrong Answer No. 3:</label>
+        <input type = "text" name = "wa3" placeholder = "Wrong Answer">
+        <input type = "submit" class="button" value =  "Add Question">
+        </span>
+    </form>
+{% endblock %}

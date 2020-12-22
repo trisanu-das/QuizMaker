@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Take Quiz
+{% endblock %}
+
+{% block main %}
+    <form action="/takequiz" method="post">
+        TestName
+        <input type = "text" placeholder = "Test Name" name = "test">
+        <input type = "submit" class="button" value = "Take Test">
+    </form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{quiztitle}}
+{% endblock %}
+
+{% block main %}
+    <div>
+            <h1>{{quiztitle}}</h1>
+            <br>
+                <form action="/quiz.html" method="post">
+                {% for question in data %}
+                <h2>{{ question.question }}</h2>
+                <ul style="list-style-type:none;">
+                {% for answer in question.answers %}
+                <li><input type="radio" id="{{ answer }}" name="{{ question.id }}" value="{{ answer }}"> {{ answer }}</li>
+                {% endfor %}
+                </ul>
+                {% endfor %}
+                <br>
+                <input type="submit" class="submit" name="Submit">
+            </form>
+        </div>
+{% endblock %}

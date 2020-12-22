@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Quiz
+{% endblock %}
+
+{% block main %}
+    <form action="/makequiz" method="post">
+        <input type = "text" name = "quizname" autofocus autocomplete = "false" placeholder = "Quiz Name">
+        <button class="btn btn-primary" type="submit">Add to Quiz Database</button>
+    </form>
+{% endblock %}
